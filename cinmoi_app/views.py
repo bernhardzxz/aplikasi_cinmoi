@@ -1,5 +1,11 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from .models import Menu
 
-def testing(request):
-    return HttpResponse("Hello world!")
+def qrcode_view(request):
+    # Menampilkan halaman utama dengan QRCode
+    return render(request, 'qrcode.html')
+
+def menu_view(request):
+    # Menampilkan halaman menu hidangan
+    menus = Menu.objects.all()
+    return render(request, 'menu.html', {'menus': menus})
