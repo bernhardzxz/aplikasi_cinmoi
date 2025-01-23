@@ -1,0 +1,37 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+    <h2>Rekomendasi Menu</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Cari Rekomendasi</button>
+    </form>
+
+    {% if rekomendasi %}
+        <h3>Hasil Rekomendasi</h3>
+        <div class="row">
+            {% for menu in rekomendasi %}
+                <div class="col-md-4 mb-4">
+                    <div class="card" style="width: 18rem;">
+                        <img src="{{ menu.gambar.url }}" class="card-img-top" alt="{{ menu.nama }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ menu.nama }}</h5>
+                            <p class="card-text">{{ menu.deskripsi }}</p>
+                            <ul class="list-unstyled">
+                                <li><strong>Tipe Rasa:</strong> {{ menu.tipe_rasa|capfirst }}</li>
+                                <li><strong>Kategori:</strong> {{ menu.kategori|capfirst }}</li>
+                                <li><strong>Harga:</strong> Rp {{ menu.harga }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    {% if qr_image %}
+        <h3>Scan QR Code untuk Rekomendasi</h3>
+        <img src="data:image/png;base64,{{ qr_image|base64 }}" alt="QR Code">
+    {% endif %}
+{% endblock %}

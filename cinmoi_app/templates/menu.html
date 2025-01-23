@@ -10,7 +10,7 @@
     <div class="container mt-4">
         <h1 class="text-center mb-4">Menu Hidangan Cinmoi</h1>
         <div class="row">
-            {% for menu in menus %}
+            {% for menu in menu %}
             <div class="col-md-4">
                 <div class="card">
                     <img src="{{ menu.gambar.url }}" class="card-img-top" alt="{{ menu.nama }}">
@@ -22,7 +22,50 @@
             </div>
             {% endfor %}
         </div>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formModal">
+            Isi Preferensi
+        </button>
         
+        <!-- Modal Form -->
+        <div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="formModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="formModalLabel">Isi Preferensi Anda</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <form method="POST" action="/rekomendasi/"> <!-- Ganti URL sesuai kebutuhan -->
+                {% csrf_token %}
+                <div class="modal-body">
+                  <div class="mb-3">
+                    <label for="tipeRasa" class="form-label">Tipe Rasa</label>
+                    <select class="form-select" id="tipeRasa" name="tipe_rasa">
+                      <option value="manis">Manis</option>
+                      <option value="asin">Asin</option>
+                      <option value="pedas">Pedas</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="budget" class="form-label">Budget</label>
+                    <input type="number" class="form-control" id="budget" name="budget" placeholder="Masukkan budget">
+                  </div>
+                  <div class="mb-3">
+                    <label for="kategoriMakanan" class="form-label">Kategori Makanan</label>
+                    <select class="form-select" id="kategoriMakanan" name="kategori_makanan">
+                      <option value="main_course">Main Course</option>
+                      <option value="side_dish">Side Dish</option>
+                      <option value="dessert">Dessert</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
     </div>
 </body>
 </html>
