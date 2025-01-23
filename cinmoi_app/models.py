@@ -4,7 +4,7 @@ from django.db import models
 class Menu(models.Model):
     nama = models.CharField(max_length=100)
     deskripsi = models.TextField()
-    gambar = models.ImageField(upload_to='menu_images/')
+    gambar = models.ImageField(upload_to='menu_images/')  # Folder dalam media
 
     def __str__(self):
         return self.nama
