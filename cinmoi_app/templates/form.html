@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Rekomendasi Hidangan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        form {
+            margin: 20px auto;
+            width: 300px;
+            text-align: left;
+        }
+
+        label, input, button {
+            display: block;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Form Rekomendasi Hidangan</h1>
+    <form action="/recommendation/" method="POST">
+        {% csrf_token %}
+        <label for="name">Nama:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="age">Umur:</label>
+        <input type="number" id="age" name="age" required>
+
+        <label for="preferences">Preferensi Rasa (pisahkan dengan koma):</label>
+        <input type="text" id="preferences" name="preferences" placeholder="Manis, Gurih, Pedas" required>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
