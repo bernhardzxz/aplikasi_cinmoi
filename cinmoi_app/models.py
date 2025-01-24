@@ -45,12 +45,3 @@ class Menu(models.Model):
     def __str__(self):
         return self.nama
 
-class PreferensiPengguna(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)  # Relasi dengan User
-    tipe_rasa = models.CharField(max_length=50)  # manis, asin, pedas
-    budget = models.IntegerField()
-    kategori_makanan = models.CharField(max_length=50)  # main_course, side_dish, etc.
-    tanggal_input = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return f"Preferensi {self.user.username} - {self.tanggal_input}"

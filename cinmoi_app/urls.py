@@ -4,5 +4,4 @@ from . import views
 urlpatterns = [
     path('', views.qrcode_view, name='qrcode'),
     path('menu/', views.menu_view, name='menu'),
-    path('rekomendasi/', views.rekomendasi_view, name='rekomendasi'),
 ]
