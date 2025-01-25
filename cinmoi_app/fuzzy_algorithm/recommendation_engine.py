@@ -11,7 +11,7 @@ def get_recommendations(age, preferences, category, price_range):
     filtered_menu = []
     if age > 40:
         filtered_menu = [item for item in menu if "Gurih" in item["flavor"]]
-    elif age <= 40:
+    else:
         filtered_menu = menu
 
     # Filter berdasarkan kategori

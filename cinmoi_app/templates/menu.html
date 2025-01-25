@@ -89,49 +89,57 @@
 
     <!-- Recommendation Modal -->
     <div class="modal fade" id="recommendationModal" tabindex="-1" aria-labelledby="recommendationModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="recommendationModalLabel">Recommendation Form</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <form action="{% url 'recommendation' %}" method="post">
-                    {% csrf_token %}
-                    <div class="modal-body">
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Anda</label>
-                            <input type="text" class="form-control" id="nama" name="nama" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="usia" class="form-label">Usia Anda</label>
-                            <input type="number" class="form-control" id="usia" name="usia" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="kategori" class="form-label">Kategori Hidangan</label>
-                            <select class="form-select" id="kategori" name="kategori" required>
-                                <option value="Pencuci Mulut">Pencuci Mulut</option>
-                                <option value="Utama">Utama</option>
-                                <option value="Minuman">Minuman</option>
-                                <option value="Camilan">Camilan</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="rasa" class="form-label">Rasa Favorit</label>
-                            <select class="form-select" id="rasa" name="rasa" required>
-                                <option value="Manis">Manis</option>
-                                <option value="Pedas">Pedas</option>
-                                <option value="Asin">Asin</option>
-                                <option value="Asam">Asam</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <!-- Modal Header -->
+              <div class="modal-header">
+                  <h5 class="modal-title" id="recommendationModalLabel">Formulir Rekomendasi Hidangan</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+  
+              <!-- Modal Form -->
+              <form action="{% url 'recommendation' %}" method="post">
+                  {% csrf_token %}
+                  <div class="modal-body">
+                      <div class="mb-3">
+                          <label for="nama" class="form-label">Nama Anda</label>
+                          <input type="text" class="form-control" id="nama" name="name" required>
+                      </div>
+                      <div class="mb-3">
+                          <label for="usia" class="form-label">Usia Anda</label>
+                          <input type="number" class="form-control" id="usia" name="age" required>
+                      </div>
+                      <div class="mb-3">
+                          <label for="kategori" class="form-label">Kategori Hidangan</label>
+                          <select class="form-select" id="kategori" name="category" required>
+                              <option value="Main Course">Main Course</option>
+                              <option value="Dessert">Dessert</option>
+                              <option value="Snack">Snack</option>
+                          </select>
+                      </div>
+                      <div class="mb-3">
+                          <label for="rasa" class="form-label">Preferensi Rasa</label>
+                          <select class="form-select" id="rasa" name="preferences" multiple required>
+                              <option value="Gurih">Gurih</option>
+                              <option value="Manis">Manis</option>
+                              <option value="Pedas">Pedas</option>
+                          </select>
+                          <small class="form-text text-muted">Tahan Ctrl (Windows) atau Command (Mac) untuk memilih lebih dari satu rasa.</small>
+                      </div>
+                      <div class="mb-3">
+                          <label for="harga" class="form-label">Batas Harga (IDR)</label>
+                          <input type="number" class="form-control" id="harga" name="price_range" placeholder="Contoh: 50000" required>
+                      </div>
+                  </div>
+  
+                  <!-- Modal Footer -->
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                      <button type="submit" class="btn btn-primary">Kirim</button>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
 </body>
 </html>
