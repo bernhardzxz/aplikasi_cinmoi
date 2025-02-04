@@ -1,6 +1,8 @@
-"builds": [
+{
+    "builds": [
     {
         "src": "aplikasi_cinmoi/manage.py",
         "use": "@vercel/python"
     }
 ]
+}
