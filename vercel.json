@@ -1,13 +1,6 @@
-{
-    "builds":[{
-        "src":"aplikasi_cinmoi/wsgi.py",
-        "use": "@vercel/python",
-        "config": {"maxLambdaSize": "15mb", "runtime": "python3.12.5"}
-    }],
-    "routes":[
-        {
-            "src": "/(.*)",
-            "dest": "aplikasi_cinmoi/wsgi.py"
-        }
-    ]
-}
+"builds": [
+    {
+        "src": "aplikasi_cinmoi/manage.py",
+        "use": "@vercel/python"
+    }
+]
