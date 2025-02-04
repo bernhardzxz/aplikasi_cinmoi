@@ -1,3 +1,87 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QRCode - Hidangan Cinmoi</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 10px 20px;
+        }
+
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .navbar .brand {
+            text-align: left;
+        }
+
+        .navbar .brand h1 {
+            font-size: 18px;
+            margin: 0;
+        }
+
+        .navbar .brand p {
+            font-size: 12px;
+            margin: 0;
+            color: #cccccc;
+        }
+
+        
+        #qrcode {
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="navbar">
+        <div class="logo ">
+            
+            <img src="/static/images/GT New Logo Putih.png" alt="Logo Perusahaan">
+        </div>
+        <div class="brand">
+            <h1>Hidangan Cinmoi</h1>
+            <p>Playtime Anytime</p>
+        </div>
+    </div>
+
+   
+    <h1>Scan QRCode untuk Melihat Hidangan Cinmoi</h1>
+    <div id="qrcode"></div>
+    <script >
+        const qrcode = new QRCode(document.getElementById("qrcode"), {
+            text: "http://localhost:8000/menu",
+            width: 200,
+            height: 200,
+            
+        });
+    </script>
+</body>
+</html> -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,8 +134,11 @@
         }
 
         /* QR Code Section */
-        #qrcode {
-            margin: 20px auto;
+        .qr-container {
+            display: flex;
+            justify-content: center; /* Pusat horizontal */
+            align-items: center; /* Pusat vertikal */
+            height: 50vh; /* Agar QR Code berada di tengah */
         }
     </style>
 </head>
@@ -70,7 +157,10 @@
 
     <!-- QR Code Section -->
     <h1>Scan QRCode untuk Melihat Hidangan Cinmoi</h1>
-    <div id="qrcode"></div>
+    <div class="qr-container">
+        <div id="qrcode"></div>
+    </div>
+
     <script>
         const qrcode = new QRCode(document.getElementById("qrcode"), {
             text: "http://localhost:8000/menu",
